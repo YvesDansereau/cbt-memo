@@ -40,39 +40,43 @@ class _StressDiaryPageState extends State<StressDiaryPage> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return ListView(padding: const EdgeInsets.all(20), children: <Widget>[
-      TitleAndTextField(
-        title: '出来事',
-        controller: event,
+    return Scaffold(
+      appBar: AppBar(title: const Text('CBT Memo')),
+      body: ListView(
+        padding: const EdgeInsets.all(20), 
+        children: <Widget>[
+          TitleAndTextField(
+            title: '出来事',
+            controller: event,
+          ),
+          TitleAndTextField(
+            title: '自動思考',
+            controller: automaticThought,
+          ),
+          TitleAndTextField(
+            title: '身体感覚',
+            controller: physicalSensation,
+          ),
+          TitleAndTextField(
+            title: '感情',
+            controller: sentiment,
+          ),
+          TitleAndTextField(
+            title: '対処',
+            controller: handling,
+          ),
+          ElevatedButton(
+            onPressed: postDiary,
+            style: ElevatedButton.styleFrom(
+                foregroundColor: theme.colorScheme.onPrimary,
+                backgroundColor: theme.colorScheme.primary),
+            child: const Text('投稿'),
+          ),
+          const SizedBox(height: 20,),
+          for (var diary in diaries.reversed) StressDiaryCard(stressDiary: diary),
+        ]
       ),
-      TitleAndTextField(
-        title: '自動思考',
-        controller: automaticThought,
-      ),
-      TitleAndTextField(
-        title: '身体感覚',
-        controller: physicalSensation,
-      ),
-      TitleAndTextField(
-        title: '感情',
-        controller: sentiment,
-      ),
-      TitleAndTextField(
-        title: '対処',
-        controller: handling,
-      ),
-      ElevatedButton(
-        onPressed: postDiary,
-        style: ElevatedButton.styleFrom(
-            foregroundColor: theme.colorScheme.onPrimary,
-            backgroundColor: theme.colorScheme.primary),
-        child: const Text('投稿'),
-      ),
-      const SizedBox(
-        height: 20,
-      ),
-      for (var diary in diaries.reversed) StressDiaryCard(stressDiary: diary),
-    ]);
+    );
   }
 }
 
