@@ -1,3 +1,4 @@
+import 'package:cbt_memo/app_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'title_and_text_field.dart';
@@ -41,7 +42,7 @@ class _StressDiaryPageState extends State<StressDiaryPage> {
     final theme = Theme.of(context);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('CBT Memo')),
+      appBar: const CommonAppBar(title: 'ストレス日記'),
       body: ListView(
         padding: const EdgeInsets.all(20), 
         children: <Widget>[
