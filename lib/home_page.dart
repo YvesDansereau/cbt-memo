@@ -1,4 +1,5 @@
 import 'package:cbt_memo/app_bar.dart';
+import 'package:cbt_memo/rebuttal_to_automatic_thought.dart';
 import 'package:cbt_memo/stress_diary.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,20 @@ class HomePage extends StatelessWidget {
                 )
               );
             },
-            child: const Text('ストレス日記'))
+            child: const Text('ストレス日記')
+          ),
+          const SizedBox(height: 10,),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const RebuttalToAutomaticThoughtPage()
+                )
+              );
+            },
+            child: const Text('自動思考への反論')
+          ),
         ]
       ),
     );
